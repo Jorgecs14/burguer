@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/main.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
+    <title>Burger King</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="./public/logo.png" alt="" />
+        </div>
+        <h3>HONESTAMENTE LAS MEJORES HAMBURGUESAS.</h3>
+        <button id="btnFiltro">Filtro</button>
+      </nav>
+    </header>
+
+    <main>
+      <h1>HAMBURGUESAS NIVEL KING.</h1>
+      <div id="filtroDesplegable" class="filtro-desplegable">
+        <div class="filtro-seccion">
+          <label for="filtroCarne">Filtrar por carne:</label>
+          <select id="filtroCarne" multiple></select>
+        </div>
+        <div class="filtro-seccion">
+          <label for="filtroIngredientes">Filtrar por ingredientes:</label>
+          <select id="filtroIngredientes" multiple></select>
+        </div>
+        <button onclick="aplicarFiltro()">Aplicar Filtro</button>
+      </div>
+
+      <section class="container" id="hamburguesas"></section>
+      <h2>
+        BURGERS SENCILLAS, PERO BUSCANDO LA EXCELENCIA. NO SOBRA NADA. NO FALTA
+        NADA. ALL HOTNESS. Y NO SOLO PASA CON LAS BURGERS, TAMBIÉN CON TODO LO
+        QUE GIRA A SU ALREDEDOR.
+      </h2>
+    </main>
+
+    <footer>
+      <ul>
+        <li>Colección</li>
+        <li>Burger Cities</li>
+        <li>About us</li>
+        <li>Curra aquí</li>
+        <li>Faqs</li>
+      </ul>
+    </footer>
+  </body>
+</html>
