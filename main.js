@@ -20,8 +20,43 @@ const aplicarFiltro = () => {
   })
 
   const divHamburguesas = document.getElementById('hamburguesas')
+  const divMensaje = document.getElementById('mensajeNoResultados')
+
+  if (hamburguesasFiltradas.length === 0) {
+    divMensaje.textContent = 'No se han encontrado resultados!.'
+    divHamburguesas.innerHTML = ''
+  } else {
+    divMensaje.textContent = ''
+    imprimirHamburguesas(hamburguesasFiltradas)
+    if (swiper) {
+      swiper.destroy()
+      swiper = new Swiper('.mySwiper', {
+        slidesPerView: 3,
+        spaceBetween: 15,
+        centeredSlides: true,
+        loop: true,
+        on: {
+          setTransition: function (transition) {
+            const slides = this.slides
+            slides.forEach((slide) => {
+              slide.style.transition = transition + 's'
+            })
+          }
+        }
+      })
+    }
+  }
+}
+
+window.aplicarFiltro = aplicarFiltro
+
+const resetFiltro = () => {
+  const divHamburguesas = document.getElementById('hamburguesas')
   divHamburguesas.innerHTML = ''
-  imprimirHamburguesas(hamburguesasFiltradas)
+  divMensaje.textContent = ''
+
+  imprimirHamburguesas(hamburguesasOriginales)
+
   if (swiper) {
     swiper.destroy()
     swiper = new Swiper('.mySwiper', {
@@ -39,7 +74,14 @@ const aplicarFiltro = () => {
       }
     })
   }
+
+  document.getElementById('filtroCarne').value = ''
+  const filtroIngredientes = document.getElementById('filtroIngredientes')
+  Array.from(filtroIngredientes.options).forEach((option) => {
+    option.selected = false
+  })
 }
+window.resetFiltro = resetFiltro
 
 const hamburguesasOriginales = [
   {
@@ -275,3 +317,7 @@ document.getElementById('btnFiltro').addEventListener('click', () => {
     console.log('Ocultando filtros')
   }
 })
+
+const divMensaje = document.createElement('h3')
+divMensaje.id = 'mensajeNoResultados'
+document.body.appendChild(divMensaje)

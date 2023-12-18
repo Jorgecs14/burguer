@@ -113,6 +113,15 @@ h2 {
   bottom: 20px;
   font-weight: 300;
 }
+
+#mensajeNoResultados {
+  position: fixed;
+  z-index: 2;
+  top: 55%;
+  left: 5%;
+  font-size: 100px;
+  color: #ff9900;
+}
 .swiper-slide {
   position: relative;
   overflow: visible;
